@@ -1,13 +1,17 @@
 import style  from "./Button.module.css";
-const initIconStyle = (icon)=>
+import { useSelector, useDispatch } from "react-redux/es/exports";
+import { setValue } from "../../../../reducer/converter-reducer";
+import { useCallback, useEffect } from "react";
+const initIconStyle = (props)=>
 {
-    const color = icon.color || `#747474`
-    const style = icon.isStroke ? {stroke:color} : {fill:color};
-    style.width = icon.width || `32px`;
-    style.height = icon.height || `32px`;
-    console.log(style)
+    const color = props.color || `#747474`
+    const style = props.isStroke ? {stroke:color} : {fill:color};
+    style.width = props.width || `32px`;
+    style.height = props.height || `32px`;
     return style;
 }
 export const Button = (props)=>{
-    return <button>{props.icon.component({style:initIconStyle(props.icon)})}</button>
+    const dispatch = useDispatch();
+    const onClick = useCallback(()=> dispatch(props.action),[])
+    return <button onClick={onClick}>{props.component({style:initIconStyle(props)})}</button>
 }

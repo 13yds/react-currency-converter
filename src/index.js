@@ -1,11 +1,17 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import App from './App';
-
+import { Provider } from 'react-redux';
+import { configureStore } from '@reduxjs/toolkit';
+import converterReducer from './reducer/converter-reducer';
+import { combineReducers } from 'redux';
 const root = ReactDOM.createRoot(document.getElementById('root'));
+const store = configureStore({reducer:converterReducer})
 root.render(
   <React.StrictMode>
-    <App />
+    <Provider store={store}>
+      <App />
+    </Provider>
   </React.StrictMode>
 );
 
