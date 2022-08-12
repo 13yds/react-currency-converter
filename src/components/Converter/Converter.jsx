@@ -1,17 +1,23 @@
-import { useReducer } from 'react'
+import { useDispatch, useSelector } from 'react-redux'
+import { getCurrencies } from '../../actions.js'
 import { converterReducer, initState } from '../../reducer/converter-reducer.js'
-import { ButtonArea } from './ButtonArea/ButtonArea.jsx'
 import style from './Converter.module.css'
+import { CurrencyArea } from './CurrencyArea/CurrencyArea.jsx'
+import { useEffect } from 'react'
+import { Preloader } from '../Preloader/Preloader.jsx'
 export const Converter = (converterReducer)=>{
-    // const [state, dispatch] = useReducer(converterReducer, initState)
+    const isPreloader = useSelector(state=> state.isPreloader)
+    const dispatch = useDispatch();
+    useEffect(() => {
+        dispatch(getCurrencies())
+    }, []);
     return (
-        <div className={style.converter}>
-            <header>
-
-            </header>
-            <footer>
-                <ButtonArea />
-            </footer>
-        </div>
+        <>
+            {isPreloader?<Preloader/>:
+                <div className={style.converter}>
+                    <CurrencyArea/>
+                </div>
+                }
+        </>
     )
 }

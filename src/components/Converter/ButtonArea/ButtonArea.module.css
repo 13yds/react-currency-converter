@@ -1,8 +1,0 @@
-.buttonArea{
-    display: flex;
-    align-items: center;
-    height: fit-content;    
-    flex-flow: wrap-reverse;
-    gap:25px;
-    padding: 40px 25px;
-}
