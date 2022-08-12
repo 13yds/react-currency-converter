@@ -1,4 +1,4 @@
-import { ADD_SYMBOL, CLEAR_VALUE, REMOVE_LAST_SYMBOL, SET_RATES, SET_CURRENCY, SET_PRELOADER, SET_VALUE, SET_ACTIVE_FIELD } from "../actions"
+import {SET_RATES, SET_CURRENCY, SET_PRELOADER, SET_VALUE, SET_ACTIVE_FIELD } from "../actions"
 export const initState = {
     isPreloader: true,
     value: 0,
@@ -14,19 +14,6 @@ export const initState = {
 }
 const converterReducer = (state=initState, action)=>{
     switch(action.type){
-        case ADD_SYMBOL:{
-            const valueToStr = state.value+"";
-            const newValue = valueToStr === '0' && action.symbol!=='.'?action.symbol:valueToStr + action.symbol
-            return {...state, value: +newValue}
-        }
-        case CLEAR_VALUE:{
-            return {...state, value:0}
-        }
-        case REMOVE_LAST_SYMBOL:{
-            let valueToStr = state.value+"";
-            let newValue = valueToStr.slice(0, state.value.length-1)
-            return{...state, value:+newValue||0};
-        }
         case SET_RATES:{
             return{...state, rates:action.rates}
         }

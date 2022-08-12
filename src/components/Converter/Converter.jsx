@@ -1,11 +1,10 @@
 import { useDispatch, useSelector } from 'react-redux'
 import { getCurrencies } from '../../actions.js'
-import { converterReducer, initState } from '../../reducer/converter-reducer.js'
-import style from './Converter.module.css'
 import { CurrencyArea } from './CurrencyArea/CurrencyArea.jsx'
 import { useEffect } from 'react'
 import { Preloader } from '../Preloader/Preloader.jsx'
-export const Converter = (converterReducer)=>{
+import style from './Converter.module.css'
+export const Converter = ()=>{
     const isPreloader = useSelector(state=> state.isPreloader)
     const dispatch = useDispatch();
     useEffect(() => {

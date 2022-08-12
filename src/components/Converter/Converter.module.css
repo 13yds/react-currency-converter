@@ -9,15 +9,13 @@ body{
 .converter{
     border-radius: 8px;
     width: 375px;
-    height: 812px;
     display: flex;
     flex-direction: column;
     box-shadow: 2px 2px 20px 0px #ffffff40
 }
-@media only screen and (max-width: 768px) {
+@media only screen and (max-width: 375px) {
     .converter{
-        width: 500px;
-        min-width: 100vw;
+        width: 100%;
     }
 }
 /* header, footer
