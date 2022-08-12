@@ -22,7 +22,7 @@ export const CurrencyArea = ()=>{
             <Currency id={'from'} type={from} onChange={onChange} onSelectCurrency={onSelectCurrency}/>
             <Currency id={'to'} type={to} onChange={onChange} onSelectCurrency={onSelectCurrency}/>
             <h2>
-                *Exchange rates are as per the - <a href="http://www.cbr.ru" target={"_blank"} rel={"noreferrer"}>http://www.cbr.ru</a>
+                *Exchange rates are as per the - <a href="https://openexchangerates.org" target={"_blank"} rel={"noreferrer"}>http://www.cbr.ru</a>
             </h2>
             <h3>Updated on {date}</h3>
         </div>
